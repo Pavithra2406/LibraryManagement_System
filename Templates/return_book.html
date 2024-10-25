@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Return a Book</h2>
+    <form method="POST" action="/return_book">
+        <div class="form-group">
+            <label for="book_id">Enter Book ID:</label>
+            <input type="number" class="form-control" id="book_id" name="book_id" required placeholder="Enter Book ID">
+        </div>
+        <div class="form-group">
+            <label for="member_id">Enter Member ID:</label>
+            <input type="number" class="form-control" id="member_id" name="member_id" required placeholder="Enter Member ID">
+        </div>
+        {% if rental_charge is not none %}
+            <div class="alert alert-info" role="alert">
+                Rental charge for the book: Rs. {{ rental_charge }}
+            </div>
+        {% endif %}
+        <button type="submit" class="btn btn-primary">Return Book</button>
+    </form>
+
+    {% if flash_messages %}
+        <div class="alert alert-info" role="alert">
+            {% for message in flash_messages %}
+                {{ message }}<br>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

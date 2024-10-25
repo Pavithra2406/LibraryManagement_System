@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Available Books</h2>
+
+    <!-- Search Form -->
+    <form method="GET" action="{{ url_for('view_books') }}" class="mb-4">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" name="search_query" class="form-control" placeholder="Search by book name or author" value="{{ request.args.get('search_query', '') }}">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Book Table -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Actions</th>  <!-- Changed to Actions -->
+            </tr>
+        </thead>
+        <tbody>
+            {% if books %}
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.book_id }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_or_delete_book', book_id=book.book_id, action='edit') }}" class="btn btn-secondary">Edit</a>
+                        <form action="{{ url_for('edit_or_delete_book', book_id=book.book_id, action='delete') }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td> <!-- Combined Edit and Delete Buttons -->
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5" class="text-center">No books found</td>  <!-- Adjusted colspan -->
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Book Details</h2>
+
+
+    <form method="POST" action="{{ url_for('book_details') }}">
+        <div class="form-group">
+            <label for="book_id">Enter Book ID:</label>
+            <input type="number" class="form-control" id="book_id" name="book_id" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    {% if book %}
+
+    <h3>Details of Book ID {{ book.id }}</h3>
+    <p><strong>Title:</strong> {{ book.title }}</p>
+    <p><strong>Author:</strong> {{ book.author }}</p>
+
+    <h3>Transaction History</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Member ID </th>
+                <th>Date Issued</th>
+                <th>Date Returned</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in book_transactions %}
+            <tr>
+                <td>{{ transaction.transaction_id }}</td>
+                <td>{{ transaction.member_id }}</td>  <!-- Accessing the reader's name -->
+                <td>{{ transaction.date_issued }}</td>
+                <td>{{ transaction.date_returned or 'Not Returned' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% elif error %}
+
+    <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+</div>
+{% endblock %}

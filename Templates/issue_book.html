@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Issue a Book</h2>
+    <form method="POST" action="/issue_book">
+        <div class="form-group">
+            <label for="book_id">Enter Book ID:</label>
+            <input type="number" class="form-control" id="book_id" name="book_id" required placeholder="Enter Book ID">
+        </div>
+        <div class="form-group">
+            <label for="member_id">Enter Member ID:</label>
+            <input type="number" class="form-control" id="member_id" name="member_id" required placeholder="Enter Member ID">
+        </div>
+        <button type="submit" class="btn btn-primary">Issue Book</button>
+    </form>
+</div>
+{% endblock %}
