@@ -1,6 +1,9 @@
 Library Management system : 
 A web application built using Flask that enables efficient management of library operations. Users can perform key functions such as issuing and returning books, viewing book details, and maintaining member information, all with a user-friendly interface.
 
+Login credentials: Username:admin , Password: password123
+
+
 Features:
 
 Book Management: Add, view, and manage book details.
