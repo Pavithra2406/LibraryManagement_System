@@ -11,6 +11,7 @@ Book Management: Add, view, and manage book details.
 [!image alt](https://github.com/Pavithra2406/LibraryManagement_System/blob/master/Screenshot%20(115).png?raw=true)
 
 Member Management: Register members, and maintain profiles and borrowing history.
+[!image alt](https://github.com/Pavithra2406/LibraryManagement_System/blob/master/Screenshot%20(117).png?raw=true)
 
 Issue and Return Books: Issue books to members and manage return transactions.
 
