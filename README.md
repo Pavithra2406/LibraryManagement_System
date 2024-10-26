@@ -7,7 +7,8 @@ Login credentials: Username:admin , Password: password123
 
 Features:
 
-Book Management: Add, view, and manage book details.
+Book Management: Add, view, and manage book details. 
+[!image alt](https://github.com/Pavithra2406/LibraryManagement_System/blob/master/Screenshot%20(115).png?raw=true)
 
 Member Management: Register members, and maintain profiles and borrowing history.
 
